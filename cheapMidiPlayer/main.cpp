@@ -3,9 +3,9 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include<Shlwapi.h>
-#pragma comment( lib, "Shlwapi.lib" )
-#pragma comment(lib,"winmm")
+#include <Shlwapi.h>
+#pragma comment(lib, "Shlwapi.lib")
+#pragma comment(lib, "winmm")
 
 #define VK_KEY_O 0x4F
 #define VK_KEY_P 0x50
@@ -60,7 +60,6 @@ public:
 	}
 
 	void change() {
-		// ファイル名
 		std::string filePath = "";
 		std::wstring stemp;
 
@@ -86,6 +85,7 @@ public:
 				std::cout << "指定されたパスにファイルが見つかりませんでした。\n\n";
 			}
 		}
+
 		mop.lpstrDeviceType = L"Sequencer";
 		mop.lpstrElementName = stemp.c_str();
 		mciSendCommand(NULL, MCI_OPEN, MCI_OPEN_TYPE | MCI_OPEN_ELEMENT, (DWORD)&mop);
@@ -102,8 +102,6 @@ public:
 		}
 	}
 };
-
-
 
 int main(int argc, char *argv[]) {
 	 std::unique_ptr<MidiPlayer> midi(new MidiPlayer());
